@@ -20,7 +20,7 @@ p {
 }
 
 body {
-  min-width: 320px;
+  min-width: 375px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   font-size: 16px;
   line-height: 1.4;
@@ -69,14 +69,26 @@ svg {
   background-color: #eee;
 }
 
+/* Schedule component */
 .schedule-component {
   --inactive-color: #999;
   --accent-color: #15b1f3;
   --accent-color-light: #f5fcff;
   display: flex;
-  flex-wrap: wrap;
   padding: 15px;
   font-size: 18px;
+}
+
+@media (max-width: 1160px) {
+  .schedule-component {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 639px) {
+  .schedule-component {
+    padding: 10px;
+  }
 }
 
 .section-container {
@@ -92,13 +104,46 @@ svg {
   padding: 40px;
 }
 
+@media (max-width: 1160px) {
+  .section-summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-summary {
+    padding: 50px 20px 30px;
+  }
+}
+
 .logo_wrapper {
   padding-top: 20px;
   padding-left: 10px;
 }
 
+@media (max-width: 1160px) {
+  .logo_wrapper {
+    position: absolute;
+    top: 0;
+    right: 20px;
+  }
+}
+
+.summary_heading {
+  margin-top: 50px;
+}
+
+@media (max-width: 1160px) {
+  .summary_heading {
+    margin-top: 0;
+  }
+}
+
 .summary_name {
-  margin-top: 3em;
   font-size: 18px;
   color: var(--inactive-color);
 }
@@ -108,15 +153,36 @@ svg {
   letter-spacing: .5px;
 }
 
+@media (max-width: 1160px) {
+  .summary_event {
+    font-size: 32px;
+  }
+}
+
 .summary_details {
   font-weight: 500;
   color: var(--inactive-color);
+}
+
+@media (max-width: 1160px) {
+  .summary_details {
+    display: flex;
+    flex-wrap: wrap;
+    order: 1;
+    margin-top: 1em;
+  }
 }
 
 .summary_details > p {
   display: flex;
   align-items: center;
   margin-top: .5em;
+}
+
+@media (max-width: 1160px) {
+  .summary_details > p:first-child {
+    margin-right: 1.5em;
+  }
 }
 
 .summary_details .icon-box {
@@ -131,9 +197,14 @@ svg {
   margin-top: 2em;
 }
 
+@media (max-width: 1160px) {
+  .summary_description {
+    margin-top: 0;
+  }
+}
+
 /* Datepicker section */
 .section-datepicker {
-  flex: 1;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto 1fr;
@@ -142,15 +213,56 @@ svg {
     'date  time '
     'zone  time ';
   gap: 30px;
-  min-width: 700px;
+  flex: 1;
   margin-left: 15px;
   padding: 30px 40px 0 25px;
+}
+
+@media (max-width: 1160px) {
+  .section-datepicker {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-datepicker {
+    gap: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 639px) {
+  .section-datepicker {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      'title'
+      'date '
+      'zone '
+      'time ';
+    margin-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .section-datepicker > * {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .datepicker_title {
   grid-area: title;
   padding-left: 10px;
   font-size: 22px;
+}
+
+@media (max-width: 767px) {
+  .datepicker_title {
+    padding-left: 0;
+  }
 }
 
 /* Datepicker */
@@ -164,10 +276,16 @@ svg {
   padding-left: 10px;
 }
 
+@media (max-width: 767px) {
+  .datepicker_month {
+    padding-left: 0;
+  }
+}
+
 .datepicker_month-buttons {
-  flex-basis: 80px;
   display: flex;
   justify-content: space-between;
+  flex-basis: 80px;
 }
 
 .datepicker_month-buttons button {
@@ -214,6 +332,20 @@ svg {
   transition: color .1s, background-color .1s;
 }
 
+@media (max-width: 767px) {
+  .datepicker_dates button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 419px) {
+  .datepicker_dates button {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 /* Positioning dates */
 .datepicker_dates button:first-child {
   grid-column: var(--firstDayOfMonth);
@@ -247,6 +379,14 @@ svg {
   transition: background-color .1s;
 }
 
+@media (max-width: 767px) {
+  .datepicker_dates [data-today]::after {
+    bottom: 5px;
+    width: 4px;
+    height: 4px;
+  }
+}
+
 .datepicker_dates [data-today]:hover::after,
 .datepicker_dates [data-today]:focus::after,
 .datepicker_dates [data-today]:active::after,
@@ -266,8 +406,15 @@ svg {
   margin: 20px 0 40px 25px;
 }
 
+@media (max-width: 639px) {
+  .timezone {
+    margin-bottom: 15px;
+  }
+}
+
 .timezone select {
   max-width: 300px;
+  margin-left: 5px;
 }
 
 /* Timepicker buttons */
@@ -284,6 +431,12 @@ svg {
   margin-top: 30px;
   padding-right: 20px;
   padding-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .timepicker_time-list {
+    padding-right: 0;
+  }
 }
 
 .timepicker_time-list::-webkit-scrollbar {
