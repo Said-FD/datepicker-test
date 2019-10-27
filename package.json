@@ -1,0 +1,11 @@
+{
+  "name": "datepicker-test",
+  "version": "0.0.1",
+  "description": "Test task",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "frontendmax@gmail.com",
+  "license": "MIT"
+}
