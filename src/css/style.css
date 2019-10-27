@@ -85,7 +85,7 @@ svg {
   box-shadow: 0 0 14px -4px rgba(0, 0, 0, .2);
 }
 
-/* Summary section (left side) */
+/* Summary section */
 .section-summary {
   flex-basis: 400px;
   min-width: 400px;
@@ -131,7 +131,7 @@ svg {
   margin-top: 2em;
 }
 
-/* Datepicker section (right side) */
+/* Datepicker section */
 .section-datepicker {
   flex: 1;
   display: grid;
